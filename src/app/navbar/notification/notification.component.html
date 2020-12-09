@@ -1,0 +1,16 @@
+<div class="btn-group" mdbDropdown>
+  <mdb-icon fas icon="bell" mdbDropdownToggle></mdb-icon>
+  <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+    <mat-list>
+      <mat-list-item class="dropdown-item" *ngFor="let msg of msgs; index as index">
+        <img matListAvatar src={{msg.message[0].content.inviter.avatar}} />
+        <p matLine>{{msg.message[0].content.inviter.firstName}} invited you to join {{msg.message[0].content.list.title}}</p>
+        <button mat-icon-button (click) = "acceptShared(msg.message[0].content.list.listId, index)">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+        <button mat-icon-button (click) = "rejectShared(msg)"><mat-icon>highlight_off</mat-icon></button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
