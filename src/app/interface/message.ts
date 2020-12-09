@@ -1,7 +1,4 @@
 export interface Message {
-  unseen: 0,
-  message: [
-    {
       messageId: number,
       content: {
         type: string,
@@ -22,6 +19,4 @@ export interface Message {
       },
       date: number,
       seen: boolean
-    }
-  ]
 }

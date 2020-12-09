@@ -8,9 +8,7 @@ import { Message } from '../interface/message';
 export class InMemoryMsgService implements InMemoryDbService  {
   // tslint:disable-next-line: typedef
   createDb() {
-    const msgs: Message[] = [{
-      unseen: 0,
-      message: [
+    const msgs: Message[] = [
         {
           messageId: 0,
           content: {
@@ -34,12 +32,9 @@ export class InMemoryMsgService implements InMemoryDbService  {
           },
           date:  Date.now(),
           seen: false
-        }
-      ]
+
     },
-    { unseen: 0,
-      message: [
-        {
+    {
           messageId: 1,
           content: {
             type: 'invitation',
@@ -63,8 +58,6 @@ export class InMemoryMsgService implements InMemoryDbService  {
           date:  Date.now(),
           seen: false
         }
-      ]
-    }
     ];
 
     return {msgs};

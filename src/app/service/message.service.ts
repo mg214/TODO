@@ -18,14 +18,14 @@ export class MessageService {
   getMsg(): Observable<Message[]>{
     return this.http.get<Message[]>(this.msgsUrl)
     .pipe(
-      map(res => res.filter(x => x.message[0].content.list.participants.filter(p => p !== 'test1') )),
+      map(res => res.filter(x => x.content.list.participants.filter(p => p === 'test1') )),
       catchError(this.handleError<Message[]>('getMsgs', []))
     );
   }
 
   /** DELETE: delete the msg from the server */
   deleteMsg(msg: Message | number): Observable<Message> {
-    const id = typeof msg === 'number' ? msg : msg.message[0].messageId;
+    const id = typeof msg === 'number' ? msg : msg.messageId;
     const url = `${this.msgsUrl}/${id}`;
     return this.http.delete<Message>(url, this.httpOptions).pipe(
       catchError(this.handleError<Message>('deleteMsg'))

@@ -27,7 +27,7 @@ export class NotificationComponent implements OnInit {
   }
   acceptShared(listId: number, index: number): void{
     this.myLists.push(listId);
-    this.msgs[index].message[0].content.accepted = true;
+    this.msgs[index].content.accepted = true;
     // TODO: add the list to mine and update the participants of list
   }
 }
